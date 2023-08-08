@@ -1,0 +1,3 @@
+O código real abaixo me parece funcional, porém o nome dos metodos está grande de mais e pode ser um problema para a inteligibilidade do codigo.
+
+Diminuir esses nomes poderia ajudar a deixar o código mais limpo e mais fácil de ler.

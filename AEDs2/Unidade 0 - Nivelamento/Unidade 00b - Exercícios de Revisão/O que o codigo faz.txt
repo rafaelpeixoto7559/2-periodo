@@ -1,0 +1,2 @@
+1) Verifica se a variavel c é igual a um dos numeros na condicional do if, restorna um booleano
+2) Faz o mesmo que o codigo anterior alem de verificar se a variavel é uma vogal

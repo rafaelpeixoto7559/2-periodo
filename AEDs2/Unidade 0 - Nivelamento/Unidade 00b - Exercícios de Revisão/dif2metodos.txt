@@ -1,0 +1,3 @@
+No m1 temos um pós decremento de i. Neste caso, o valor de i será decrementado após de realizar a operação na qual está atrelada.
+
+Já no m2 temos um pré decremento de i, onde o valor de i será decrementado ants de realizar a operação atrelada ao mesmo.

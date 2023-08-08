@@ -1,0 +1,3 @@
+O programa irá imprimir 46-11 pois os operadores >> e << adicionam um 0 no valor binário.
+
+Esse 0 será adiconado na direção para qual o valor está adicionado, ou seja, o valor 10111 no caso do x vira 101110(46) e o y vira 1011(11)
