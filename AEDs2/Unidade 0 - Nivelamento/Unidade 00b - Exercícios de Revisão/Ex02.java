@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Ex01
+ * Ex02
  */
 
 public class Ex02 {
