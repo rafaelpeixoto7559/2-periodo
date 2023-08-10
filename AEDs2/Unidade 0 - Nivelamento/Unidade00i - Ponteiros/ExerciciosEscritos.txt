@@ -1,0 +1,109 @@
+1) Cria um array de cinco posições e salva o endereço da primeira na variavel
+2) "Endereço da 1a posição do array acima"  "Endereço da 1a posição do “novo” array"
+-----------------------------------------------------------------------------------
+1) MEMÓRIA:        TELA:
+    x = 5
+                    x:5
+                    a:5
+    a = 10,x = 5
+                    a:10
+                    x:5
+-----------------------------------------------------------------------------------
+3) Memória
+Y: 7Eh    75h
+X           76h
+0           77h
+1           78h
+2           79h
+3           7Ah
+4           7Bh
+X           7Ch
+X           7Dh
+0           7Eh
+5           7Fh
+10          80h
+15          81h
+20          82h
+b: 77h      83h
+
+Tela
+y[0] : 0
+y[1] : 5
+y[2] : 10
+y[3] : 15
+y[4] : 20
+b[0] : 0
+b[1] : 5
+b[2] : 10
+b[3] : 15
+b[4] : 20
+b[0] : 0
+b[1] : 1
+b[2] : 2
+b[3] : 3
+b[4] : 4
+
+4) Tela
+    ADDRs:
+    c1(null)
+    c2(null)
+    c3(null)
+    ADDRs:
+    c1(7Ah)
+    c2(7Ah)
+    c3(A5h)
+    ATRIBUTOs
+    c1(3/aa)
+    c2(3/aa)
+    c3(2/bb)
+
+5)  33h
+    33h
+    33h
+    6 / ff  33h
+    2 / bb
+    5 / ee
+    62h c1  33h        
+
+6)  33h
+    62h
+    51h
+
+    1 / aa  33h
+
+
+    2 / bb  51h
+
+    1 / aa  62h           
+
+7) Tela
+    ADDRs:
+    c1(null)
+    c2(null)
+    c3(null)
+    ADDRs:
+    c1(7Ah)
+    c2(9Ah)
+    c3(A5h)
+    ATRIBUTOs
+    c1(1/aa)
+    c2(3/aa)
+    c3(2/bb)
+
+8)Tela
+    ADDRs:
+    c1(null)
+    c2(null)
+    c3(null)
+    ADDRs:
+    c1(7Ah)
+    c2(9Ah)
+    c3(A5h)
+    ATRIBUTOs
+    c1(1/aa)
+    c2(3/aa)
+    c3(2/bb)
+
+9) B
+
+10) A
