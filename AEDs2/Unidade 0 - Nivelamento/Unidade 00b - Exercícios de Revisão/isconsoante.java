@@ -14,4 +14,8 @@ public class isconsoante {
         }
         return resp;
     }
+
+    private boolean isVogal(char charAt) {
+        return false;
+    }
 }
