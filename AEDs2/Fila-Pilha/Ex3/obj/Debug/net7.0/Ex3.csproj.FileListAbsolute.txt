@@ -1,0 +1,14 @@
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\bin\Debug\net7.0\Ex3.exe
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\bin\Debug\net7.0\Ex3.deps.json
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\bin\Debug\net7.0\Ex3.runtimeconfig.json
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\bin\Debug\net7.0\Ex3.dll
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\bin\Debug\net7.0\Ex3.pdb
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\obj\Debug\net7.0\Ex3.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\obj\Debug\net7.0\Ex3.AssemblyInfoInputs.cache
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\obj\Debug\net7.0\Ex3.AssemblyInfo.cs
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\obj\Debug\net7.0\Ex3.csproj.CoreCompileInputs.cache
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\obj\Debug\net7.0\Ex3.dll
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\obj\Debug\net7.0\refint\Ex3.dll
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\obj\Debug\net7.0\Ex3.pdb
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\obj\Debug\net7.0\Ex3.genruntimeconfig.cache
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex3\obj\Debug\net7.0\ref\Ex3.dll

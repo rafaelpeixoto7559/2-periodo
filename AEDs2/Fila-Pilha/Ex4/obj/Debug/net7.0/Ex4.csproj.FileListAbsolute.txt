@@ -1,0 +1,14 @@
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\bin\Debug\net7.0\Ex4.exe
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\bin\Debug\net7.0\Ex4.deps.json
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\bin\Debug\net7.0\Ex4.runtimeconfig.json
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\bin\Debug\net7.0\Ex4.dll
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\bin\Debug\net7.0\Ex4.pdb
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\obj\Debug\net7.0\Ex4.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\obj\Debug\net7.0\Ex4.AssemblyInfoInputs.cache
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\obj\Debug\net7.0\Ex4.AssemblyInfo.cs
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\obj\Debug\net7.0\Ex4.csproj.CoreCompileInputs.cache
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\obj\Debug\net7.0\Ex4.dll
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\obj\Debug\net7.0\refint\Ex4.dll
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\obj\Debug\net7.0\Ex4.pdb
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\obj\Debug\net7.0\Ex4.genruntimeconfig.cache
+D:\Facul\2-periodo\AEDs2\Fila-Pilha\Ex4\obj\Debug\net7.0\ref\Ex4.dll
