@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Arquivo",
+            "request": "launch",
+            "mainClass": "Arquivo.Arquivo",
+            "projectName": "Trabalho-Pratico-01_76b09855"
+        },
+        {
+            "type": "java",
             "name": "cifra",
             "request": "launch",
             "mainClass": "cifra",
