@@ -1,5 +1,3 @@
-package AEDs2.Palindromo;
-
 import java.util.Scanner;
 
 /*
