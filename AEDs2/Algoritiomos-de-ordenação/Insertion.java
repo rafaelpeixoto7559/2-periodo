@@ -15,8 +15,8 @@ public class Insertion{
     public static void main(String[] args) {
         int[] array = {5, 3, 2, 4, 7, 1, 0, 6};
         sort(array);
-        for (int i : array) {
-            System.out.println(i);
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
         }   
     }
 }

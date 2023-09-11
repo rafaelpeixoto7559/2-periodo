@@ -8,10 +8,10 @@ public class Selection{
     }
 
     public static void sort(int[] vetor){
-        for (int i : vetor) {
-            int menor = 1;
-            for (int j = i+1; j < vetor.length; j++) {
-                if(vetor[j] < vetor[menor]){
+        for (int i = 0; i < vetor.length; i++) {
+            int menor = i;
+            for (int j = (i + 1); j < vetor.length; j++) {
+                if (vetor[j] < vetor[menor]) {
                     menor = j;
                 }
             }
@@ -21,8 +21,8 @@ public class Selection{
     public static void main(String[] args) {
         int[] array = {5, 3, 2, 4, 7, 1, 0, 6};
         sort(array);
-        for (int i : array) {
-            System.out.println(i);
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
         }   
     }
 }
