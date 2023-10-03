@@ -1,23 +1,33 @@
+package Ex05;
 /*
- * Inserção e Pesquisa Sequencial em Vetor
-Este documento descreve um algoritmo para a inserção de registros no final de um vetor e a subsequente realização de pesquisas sequenciais com base na chave primária, que é o atributo nome.
+ * Ordenação por Seleção de Vetor
+Neste documento, descreve-se a implementação do algoritmo de ordenação por seleção utilizando vetores. A chave de pesquisa considerada é o atributo nome.
 
 Entrada
-A entrada padrão consiste em duas partes:
+A entrada padrão é semelhante à da primeira questão e consiste em duas partes:
 
 A primeira parte é igual à entrada da primeira questão.
 
-A segunda parte é composta por várias linhas, cada uma contendo um elemento que deve ser pesquisado no vetor. A última linha da segunda parte contém a palavra FIM.
+A segunda parte é composta por várias linhas, cada uma contendo um elemento que será ordenado no vetor. A última linha da segunda parte contém a palavra FIM.
 
 Saída
-A saída padrão será composta por várias linhas, cada uma contendo as palavras SIM ou NAO para indicar se cada um dos elementos pesquisados foi encontrado no vetor.
+A saída padrão será composta por várias linhas contendo os registros ordenados com base no atributo nome.
 
+Algoritmo de Ordenação por Seleção
+O algoritmo de ordenação por seleção funciona da seguinte maneira:
+
+Encontra o menor elemento no vetor não ordenado.
+Troca o menor elemento com o primeiro elemento não ordenado.
+Repete os passos 1 e 2 para os elementos restantes do vetor não ordenado.
 Registro de Log
-Além disso, um arquivo de log será criado na pasta corrente com o nome matrícula_sequencial.txt. Este arquivo conterá uma única linha com as seguintes informações, separadas por uma tabulação ('\t'):
+Um arquivo de log será criado na pasta corrente com o nome matrícula_selecao.txt. Este arquivo conterá uma única linha com as seguintes informações, separadas por uma tabulação ('\t'):
 
 Sua matrícula
-Tempo de execução do algoritmo
-Número de comparações realizadas durante a execução
+Número de comparações entre elementos do vetor durante a ordenação
+Número de movimentações (trocas) entre elementos do vetor durante a ordenação
+Tempo de execução do algoritmo de ordenação por seleção
+Observações
+Certifique-se de substituir "matrícula" pela sua matrícula real e fornecer as informações de comparações, movimentações e tempo de execução ao preencher o arquivo de log.
  */
 
 import java.io.File;
@@ -185,6 +195,7 @@ public class Jogador {
         }
     }
 
+    // Metodo para ler o arquivo e preencher o vetor de jogadores
     public static String[] lerArq(String path) {
         File file = new File("/tmp/" + path);
         String[] arrData = new String[3922];
@@ -203,10 +214,18 @@ public class Jogador {
         return arrData;
     }
 
+    // Metodo para trocar dois jogadores de posicao
+    public static void swap(int menor, int k, Jogador[] entradaJogador) {
+        Jogador temp = entradaJogador[menor];
+        entradaJogador[menor] = entradaJogador[k];
+        entradaJogador[k] = temp;
+    }
+
     public static void main(String[] args) {
 
         long startTime = System.nanoTime();
         int comparacoes = 0;
+        int movimentacoes = 0;
 
         String[] arrData = lerArq("players.csv");
         Jogador[] jogadorData = new Jogador[arrData.length];
@@ -216,7 +235,6 @@ public class Jogador {
             Jogador jogador = new Jogador();
             jogador.ler(data);
             jogadorData[i] = jogador;
-            comparacoes++;
         }
 
         Scanner sc = new Scanner(System.in);
@@ -231,37 +249,36 @@ public class Jogador {
             entradaJogador[i] = jogadorData[id];
             i++;
             entrada = sc.nextLine();
-            comparacoes++;
         }
 
-        // procura jogadores por nome
-        entrada = sc.nextLine();
-        while (!entrada.equals("FIM")) {
-            boolean encontrou = false;
-            for (int j = 0; j < i; j++) {
-                if (entradaJogador[j].getNome().equals(entrada)) {
-                    System.out.println("SIM");
-                    encontrou = true;
-                    j = i;
-                }
+        // ordena o vetor de entrada por selecao
+        for (int j = 0; j < i; j++){
+            int menor = j;
+            for (int k = (j + 1); k < i; k++){
                 comparacoes++;
+                if (entradaJogador[menor].getNome().compareTo(entradaJogador[k].getNome()) > 0){
+                    swap(menor, k, entradaJogador);
+                    movimentacoes += 3;
+                }
             }
-            if (!encontrou) {
-                System.out.println("NAO");
-            }
-            entrada = sc.nextLine();
-            comparacoes++;
         }
 
+        // imprime o vetor ordenado
+        for (int j = 0; j < i; j++) {
+            entradaJogador[j].imprimir();
+        }
+
+        // cria o arquivo de log
         try {
-            File arq = new File("matríricula_sequencial.txt");
+            File arq = new File("1453574_selecao.txt");
             if (arq.createNewFile()) {
                 FileWriter fw = new FileWriter(arq);
                 fw.write("Matricula: 1453574\t");
+                fw.write("Comparações: " + comparacoes + "\t");
+                fw.write("Movimentações: " + movimentacoes + "\t");
                 long endTime = System.nanoTime();
                 long totalTime = endTime - startTime;
                 fw.write("Tempo de execução: " + totalTime + "\t");
-                fw.write("Comparações: " + comparacoes);
             } else {
                 System.out.println("Arquivo já existe.");
             }
