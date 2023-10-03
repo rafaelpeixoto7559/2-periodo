@@ -1,31 +1,34 @@
 package Ex05;
 /*
- * Ordenação por Seleção de Vetor
-Neste documento, descreve-se a implementação do algoritmo de ordenação por seleção utilizando vetores. A chave de pesquisa considerada é o atributo nome.
+Ordenação por Inserção de Vetor
+Neste documento, descreve-se a implementação do algoritmo de ordenação por inserção utilizando vetores. A chave de pesquisa considerada é o atributo anoNascimento e, em caso de empate, o critério de ordenação será o nome do jogador.
 
 Entrada
-A entrada padrão é semelhante à da primeira questão e consiste em duas partes:
+A entrada padrão é semelhante à da questão anterior e consiste em duas partes:
 
 A primeira parte é igual à entrada da primeira questão.
 
 A segunda parte é composta por várias linhas, cada uma contendo um elemento que será ordenado no vetor. A última linha da segunda parte contém a palavra FIM.
 
 Saída
-A saída padrão será composta por várias linhas contendo os registros ordenados com base no atributo nome.
+A saída padrão será composta por várias linhas contendo os registros ordenados com base no atributo anoNascimento. Em caso de empate, a ordenação será feita pelo nome do jogador.
 
-Algoritmo de Ordenação por Seleção
-O algoritmo de ordenação por seleção funciona da seguinte maneira:
+Algoritmo de Ordenação por Inserção
+O algoritmo de ordenação por inserção funciona da seguinte maneira:
 
-Encontra o menor elemento no vetor não ordenado.
-Troca o menor elemento com o primeiro elemento não ordenado.
-Repete os passos 1 e 2 para os elementos restantes do vetor não ordenado.
+Começa com um subvetor de um elemento (o primeiro elemento é considerado ordenado).
+
+À medida que percorre o vetor não ordenado, insere cada elemento na posição correta do subvetor ordenado.
+
+Continua até que todo o vetor esteja ordenado.
+
 Registro de Log
-Um arquivo de log será criado na pasta corrente com o nome matrícula_selecao.txt. Este arquivo conterá uma única linha com as seguintes informações, separadas por uma tabulação ('\t'):
+Um arquivo de log será criado na pasta corrente com o nome matrícula_insercao.txt. Este arquivo conterá uma única linha com as seguintes informações, separadas por uma tabulação ('\t'):
 
 Sua matrícula
 Número de comparações entre elementos do vetor durante a ordenação
 Número de movimentações (trocas) entre elementos do vetor durante a ordenação
-Tempo de execução do algoritmo de ordenação por seleção
+Tempo de execução do algoritmo de ordenação por inserção
 Observações
 Certifique-se de substituir "matrícula" pela sua matrícula real e fornecer as informações de comparações, movimentações e tempo de execução ao preencher o arquivo de log.
  */
@@ -279,7 +282,6 @@ public class Jogador {
                 long endTime = System.nanoTime();
                 long totalTime = endTime - startTime;
                 fw.write("Tempo de execução: " + totalTime + "\t");
-                fw.close();
             } else {
                 System.out.println("Arquivo já existe.");
             }
