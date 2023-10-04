@@ -1,4 +1,3 @@
-package Ex05;
 /*
 Ordenação por Inserção de Vetor
 Neste documento, descreve-se a implementação do algoritmo de ordenação por inserção utilizando vetores. A chave de pesquisa considerada é o atributo anoNascimento e, em caso de empate, o critério de ordenação será o nome do jogador.
