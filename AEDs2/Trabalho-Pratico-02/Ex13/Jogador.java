@@ -272,10 +272,16 @@ public class Jogador {
 
         // intercalar os dois subarrays
         for(i = j = 0, k = esq; k <= dir; k++){
-            if (a1[i].getUniversidade().compareTo(a2[j].getUniversidade()) < 0){
+            if (a1[i].getUniversidade().compareTo(a2[j].getUniversidade()) <= 0){
                 entradaJogador[k] = a1[i++];
+                if(i == a1.length){
+                    i--;
+                }
             } else {
                 entradaJogador[k] = a2[j++];
+                if(j == a2.length){
+                    j--;
+                }
             }
         }
     }
