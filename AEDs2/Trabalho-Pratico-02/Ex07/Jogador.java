@@ -1,6 +1,5 @@
-package Ex05;
 /*
-Ordenação por Inserção de Vetor
+ * Ordenação por Inserção de Vetor
 Neste documento, descreve-se a implementação do algoritmo de ordenação por inserção utilizando vetores. A chave de pesquisa considerada é o atributo anoNascimento e, em caso de empate, o critério de ordenação será o nome do jogador.
 
 Entrada
@@ -254,14 +253,23 @@ public class Jogador {
             entrada = sc.nextLine();
         }
 
-        // ordena o vetor de entrada por selecao
-        for (int j = 0; j < i; j++){
-            int menor = j;
-            for (int k = (j + 1); k < i; k++){
-                comparacoes++;
-                if (entradaJogador[menor].getNome().compareTo(entradaJogador[k].getNome()) > 0){
-                    swap(menor, k, entradaJogador);
-                    movimentacoes += 3;
+        // ordena o vetor de entrada por insercao
+
+        for (int j = 1; j < i; j++){
+            int k = j;
+            while(k > 0 && entradaJogador[k].getAnoNascimento() < entradaJogador[k-1].getAnoNascimento()){
+                swap(k, k-1, entradaJogador);
+                movimentacoes += 3;
+                comparacoes += 2;
+                k--;
+                while (k > 0 && entradaJogador[k].getAnoNascimento() == entradaJogador[k-1].getAnoNascimento()){
+                    comparacoes+= 2;
+                    if (entradaJogador[k].getNome().compareTo(entradaJogador[k-1].getNome()) < 0){
+                        comparacoes++;
+                        swap(k, k-1, entradaJogador);
+                        movimentacoes += 3;
+                    }
+                    k--;
                 }
             }
         }
@@ -273,7 +281,7 @@ public class Jogador {
 
         // cria o arquivo de log
         try {
-            File arq = new File("1453574_selecao.txt");
+            File arq = new File("1453574_insercao.txt");
             if (arq.createNewFile()) {
                 FileWriter fw = new FileWriter(arq);
                 fw.write("Matricula: 1453574\t");
@@ -282,6 +290,7 @@ public class Jogador {
                 long endTime = System.nanoTime();
                 long totalTime = endTime - startTime;
                 fw.write("Tempo de execução: " + totalTime + "\t");
+                fw.close();
             } else {
                 System.out.println("Arquivo já existe.");
             }

@@ -1,4 +1,3 @@
-package Ex05;
 /*
  * Ordenação por Seleção de Vetor
 Neste documento, descreve-se a implementação do algoritmo de ordenação por seleção utilizando vetores. A chave de pesquisa considerada é o atributo nome.
