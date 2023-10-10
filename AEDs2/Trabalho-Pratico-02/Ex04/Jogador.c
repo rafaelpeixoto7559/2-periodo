@@ -1,4 +1,25 @@
-// Repita a anterior criando o registro Jogador na linguagem C.
+/*Inserção e Pesquisa Binária em Vetor
+Este documento descreve um algoritmo para a inserção de registros no final de um vetor e a subsequente realização de pesquisas utilizando a Pesquisa Binária, com base na chave primária, que é o atributo nome.
+
+Entrada
+A entrada padrão consiste em duas partes:
+
+A primeira parte é igual à entrada da questão anterior.
+
+A segunda parte é composta por várias linhas, cada uma contendo um elemento que deve ser pesquisado no vetor. A última linha da segunda parte contém a palavra FIM.
+
+Saída
+A saída padrão será composta por várias linhas, cada uma contendo as palavras SIM ou NAO para indicar se cada um dos elementos pesquisados foi encontrado no vetor.
+
+Registro de Log
+Além disso, um arquivo de log será criado na pasta corrente com o nome matrícula_binaria.txt. Este arquivo conterá uma única linha com as seguintes informações, separadas por uma tabulação ('\t'):
+
+Sua matrícula
+Tempo de execução do algoritmo
+Número de comparações realizadas durante a execução
+Observações
+A entrada desta questão não está ordenada, mas a pesquisa binária requer uma ordenação prévia do vetor. Portanto, será necessário ordenar o vetor antes de realizar as pesquisas.
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -139,7 +160,7 @@ int main()
        
         i++;
     }
-
+    
     while (1)
     {
         char entrada[100];
