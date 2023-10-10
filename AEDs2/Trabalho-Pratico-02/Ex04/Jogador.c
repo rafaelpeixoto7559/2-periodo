@@ -24,6 +24,7 @@ A entrada desta questão não está ordenada, mas a pesquisa binária requer uma
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <time.h>
 
 // definindo a estrutura Jogador
@@ -136,32 +137,26 @@ void split(const char *str, char delimiter, char tokens[8][100])
 }
 
 // pesquisa binária
-int pesquisaBinaria(Jogador *vet, char *nome, int inicio, int fim, int *comp)
+bool pesquisaBinaria(Jogador *vet, char *nome, int esq, int dir, int *comp)
 {
-    int meio = (inicio + fim) / 2;
-    int resp = 0;
-
-    if (inicio > fim)
-    {
-        *comp += 1;
-        resp = 0;
+    int meio;
+    while (esq <= dir){
+        comp++;
+        meio = (esq + dir) / 2;
+        if (strcmp(vet[meio].nome, nome) == 0){
+            comp++;
+            return true;
+        }
+        else if (strcmp(vet[meio].nome, nome) > 0){
+            comp++;
+            dir = meio - 1;
+        }
+        else{
+            comp++;
+            esq = meio + 1;
+        }
     }
-    else if (strcmp(vet[meio].nome, nome) == 0)
-    {
-        *comp += 1;
-        resp = 1;
-    }
-    else if (strcmp(vet[meio].nome, nome) > 0)
-    {
-        *comp += 1;
-        resp = pesquisaBinaria(vet, nome, inicio, meio - 1, comp);
-    }
-    else
-    {
-        resp = pesquisaBinaria(vet, nome, meio + 1, fim, comp);
-    }
-
-    return resp;
+    return false;
 }
 
 int main()
@@ -231,22 +226,15 @@ int main()
     int comp = 0;
     while (1)
     {
-        char entrada[100];
-        scanf("%s", entrada);
-        if (strcmp(entrada, "FIM") == 0)
+        char leitura[2000];
+        scanf(" %[^\n]s", leitura);
+        if (strcmp(leitura, "FIM") == 0)
         {
             break;
         }
         else
         {
-            if (pesquisaBinaria(entradajogador, entrada, 0, jogpos - 1, &comp) == 1)
-            {
-                printf("SIM\n");
-            }
-            else
-            {
-                printf("NAO\n");
-            }
+            printf("%s\n", pesquisaBinaria(entradajogador, leitura, 0, jogpos-1, comp) ? "SIM" : "NAO");
         }
     }
 
@@ -254,7 +242,6 @@ int main()
     FILE *log = fopen("1453574_binaria.txt", "w");
     tempo = clock() - tempo;
     fprintf(log, "Matricula: 1453574\tTempo de execução: %lf\tNúmero de comparações: %d", ((double)tempo) / ((CLOCKS_PER_SEC / 1000)), comp);
-    
 
     fclose(arq);
     fclose(log);
