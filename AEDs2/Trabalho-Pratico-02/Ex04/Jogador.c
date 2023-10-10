@@ -24,11 +24,12 @@ A entrada desta questão não está ordenada, mas a pesquisa binária requer uma
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 // definindo a estrutura Jogador
 typedef struct Jogador
 {
-    char id[100] ;
+    char id[100];
     char nome[100];
     char altura[100];
     char peso[100];
@@ -49,12 +50,11 @@ Jogador clone(Jogador *jogador)
 // lê uma linha do arquivo e retorna os dados lidos
 void ler(Jogador *j, char *frase)
 {
-
 }
 
 void imprimir(Jogador jogador)
-{   
-  // id, nome, altura, peso, universidade, anoNascimento, cidadeNascimento, estadoNascimento
+{
+    // id, nome, altura, peso, universidade, anoNascimento, cidadeNascimento, estadoNascimento
     printf("[%s ## %s ## %s ## %s ## %s ## %s ## %s ## %s]\n", jogador.id, jogador.nome, jogador.altura, jogador.peso, jogador.anoNascimento, jogador.universidade, jogador.cidadeNascimento, jogador.estadoNascimento);
 }
 
@@ -96,7 +96,7 @@ char *tratarFrase(char *frase)
 // adiciona um jogador
 void adcionarPlayer(Jogador *player, char tokens[8][100])
 {
-   strcpy(player->id, tokens[0]);
+    strcpy(player->id, tokens[0]);
 
     strcpy(player->nome, tokens[1]);
     strcpy(player->altura, tokens[2]);
@@ -135,8 +135,38 @@ void split(const char *str, char delimiter, char tokens[8][100])
     }
 }
 
+// pesquisa binária
+int pesquisaBinaria(Jogador *vet, char *nome, int inicio, int fim, int *comp)
+{
+    int meio = (inicio + fim) / 2;
+    int resp = 0;
+
+    if (inicio > fim)
+    {
+        *comp += 1;
+        resp = 0;
+    }
+    else if (strcmp(vet[meio].nome, nome) == 0)
+    {
+        *comp += 1;
+        resp = 1;
+    }
+    else if (strcmp(vet[meio].nome, nome) > 0)
+    {
+        *comp += 1;
+        resp = pesquisaBinaria(vet, nome, inicio, meio - 1, comp);
+    }
+    else
+    {
+        resp = pesquisaBinaria(vet, nome, meio + 1, fim, comp);
+    }
+
+    return resp;
+}
+
 int main()
 {
+    clock_t tempo;
 
     char leraq[600];
 
@@ -151,16 +181,18 @@ int main()
     while (fgets(leraq, 600, arq) != NULL)
     {
         char *frase = tratarFrase(leraq);
-       
+
         char dados[8][100];
         split(frase, ',', dados);
         free(frase);
 
         adcionarPlayer(&time[i], dados);
-       
+
         i++;
     }
-    
+
+    Jogador entradajogador[3922];
+    int jogpos = 0;
     while (1)
     {
         char entrada[100];
@@ -175,14 +207,57 @@ int main()
             {
                 if (strcmp(entrada, time[i].id) == 0)
                 {
-                    imprimir(time[i]);
+                    entradajogador[jogpos] = clone(&time[i]);
+                    jogpos++;
                 }
-                
             }
         }
     }
 
+    // ordenando o vetor entradajogador por inserção
+    for (int i = 1; i < jogpos; i++)
+    {
+        Jogador tmp = entradajogador[i];
+        int j = i - 1;
+        while ((j >= 0) && (strcmp(entradajogador[j].nome, tmp.nome) > 0))
+        {
+            entradajogador[j + 1] = entradajogador[j];
+            j--;
+        }
+        entradajogador[j + 1] = tmp;
+    }
+
+    // chama a funcão de pesquisa binária
+    int comp = 0;
+    while (1)
+    {
+        char entrada[100];
+        scanf("%s", entrada);
+        if (strcmp(entrada, "FIM") == 0)
+        {
+            break;
+        }
+        else
+        {
+            if (pesquisaBinaria(entradajogador, entrada, 0, jogpos - 1, &comp) == 1)
+            {
+                printf("SIM\n");
+            }
+            else
+            {
+                printf("NAO\n");
+            }
+        }
+    }
+
+    // cria arquivo de log
+    FILE *log = fopen("1453574_binaria.txt", "w");
+    tempo = clock() - tempo;
+    fprintf(log, "Matricula: 1453574\tTempo de execução: %lf\tNúmero de comparações: %d", ((double)tempo) / ((CLOCKS_PER_SEC / 1000)), comp);
+    
+
     fclose(arq);
+    fclose(log);
 
     return 0;
 }
